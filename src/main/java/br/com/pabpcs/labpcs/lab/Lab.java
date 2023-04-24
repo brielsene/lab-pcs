@@ -36,4 +36,8 @@ public class Lab {
         this.endereco = new Endereco(data.enderecoRequestDto());
 
     }
+
+    public Lab(Long id){
+        this.id = id;
+    }
 }

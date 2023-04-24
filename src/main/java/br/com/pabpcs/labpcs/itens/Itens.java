@@ -1,6 +1,7 @@
 package br.com.pabpcs.labpcs.itens;
 
 import br.com.pabpcs.labpcs.lab.Lab;
+import br.com.pabpcs.labpcs.lab.LabRequestItemDto;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -27,6 +28,13 @@ public class Itens {
     @JoinColumn(name = "id_lab")
     @JsonBackReference
     private Lab lab;
+
+    public Itens(ItensRequestDto data){
+        this.nome = data.nome();
+        this.descricao = data.descricao();
+        this.price = data.price();
+        this.lab = Lab.builder().id(data.id()).build();
+    }
 
 
 }
